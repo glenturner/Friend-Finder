@@ -1,0 +1,34 @@
+.jumbotron {
+   background-color: #000080;
+   color: white;
+   margin: 30px;
+}
+
+.btn {
+   margin: 10px;
+   background-color: #000080;
+}
+span {
+   margin: 5px;
+}
+
+.fa {
+   margin-right: 10px;
+}
+
+.panel-default > .panel-heading {
+color: white;
+
+}
+
+#headerDiv {
+   background-color: #000080;
+}
+
+.form-control {
+   width: 90%;
+}
+
+.well {
+   margin:10px;
+}

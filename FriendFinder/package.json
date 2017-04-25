@@ -1,0 +1,29 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "app that matches friends",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glenturner/Friend-Finder.git"
+  },
+  "keywords": [
+    "friend",
+    "finder"
+  ],
+  "author": "Glen Turner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/glenturner/Friend-Finder/issues"
+  },
+  "homepage": "https://github.com/glenturner/Friend-Finder#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "chosen": "0.0.2",
+    "express": "^4.15.2",
+    "path": "^0.12.7"
+  }
+}
