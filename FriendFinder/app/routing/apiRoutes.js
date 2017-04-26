@@ -18,10 +18,10 @@ module.exports = function(app){
 
 		var bestMatch = {
 			name: "",
-			photo: ""
+			photo: "",
+		    friendDifference: 1000
 		};
 		
-		var friendDifference = 1000
 		var userData 	= req.body;
 		var userName 	= req.body.name;
 		var userPhoto 	= req.body.photo;
@@ -29,6 +29,7 @@ module.exports = function(app){
 
 		var userTotalDifference;
 		var friendsTotalDifference;
+		var totalDifference;
 
 		//loop through the friends data array of objects to get each friends scores
 		JSON.stringify(friends);
@@ -41,54 +42,58 @@ module.exports = function(app){
 			friendsTotalDifference = 0;
 			userTotalDifference = 0;
 			var userTotalArray = [];
-			parseFloat(userScores);
+
 			userTotalArray.push(userScores)
 			
 			console.log(colors.inverse.red("This is userTotalArray: " + userTotalArray));
 			//loop through that friends score and the users score and calculate the absolute difference between the two and push that to the total difference variable set above
-			for(var j = 0; j < 10; j++){
+			for(var j = 0; j < userScores.length; j++){
+				// function that generates value for friends total to compare compatability with user // 
 				function friendTotals (total, num) {
                         return total + num;
                     }
-                    friendsTotalDifference = friends[i].scores.reduce(friendTotals);
+                    // reduce method that saves friendsTotals function for compatability // 
+                    friendsTotalDifference = friends[i].scores.reduce(friendTotals);                    
 				    console.log(colors.inverse("This is friends[i] total: " + friendsTotalDifference));
-                
+				    // This turns array of strings into array of integers to sum up total for compatability // 
+                	var arrayOfNumbers = userScores.map(Number);
+               		console.log(colors.inverse.yellow("This is test map(Number): " + arrayOfNumbers));
+               		// function that generates value for user total to compare compatablility with friends api // 
                     function userTotals (total, num) {
                         return total + num;
                     }
-
-                    userTotalDifference = userScores.reduce(userTotals);
+                	// reduce method that saves user userTotals function for compatability // 
+                    userTotalDifference = arrayOfNumbers.reduce(userTotals);
                     console.log(colors.inverse.red("This is  userTotal Scores added: " + userTotalDifference));
+	              
+					// We calculate the difference between the scores and sum them into the totalDifference
+					 totalDifference = Math.abs(userTotalDifference - friendsTotalDifference);
+					console.log(colors.inverse.blue("This is totalDifference: " + totalDifference));
+					// If the sum of differences is less then the differences of the current "best match"
+					if (totalDifference <= bestMatch.friendDifference){
 
-
-
-				// We calculate the difference between the scores and sum them into the totalDifference
-				/*totalDifference += Math.abs(parseInt(userData[j]) - (friends[i].scores[j]));
-				// If the sum of differences is less then the differences of the current "best match"
-				if (totalDifference <= friendDifference){
-
-					// Reset the bestMatch to be the new friend. 
-					var bestMatchName = friends[i].name;
-					var bestMatchPhoto = friends[i].photo;
-					var bestMatchDifference = totalDifference;
-				}*/
+						// Reset the bestMatch to be the new friend. 
+						 bestMatch.name = friends[i].name;
+						 bestMatch.photo = friends[i].photo;
+						 bestMatch.friendDifference = totalDifference;
+					}
+				}
 			}
-		}
 
-		// Finally save the user's data to the database (this has to happen AFTER the check. otherwise,
+		// Finally save the user's data to the database (this has to happen after the screening. otherwise,
 		// the database will always return that the user is the user's best friend).
-			/*console.log(colors.inverse.green("This is friends: " + friends));
-			JSON.stringify(userData);
-			console.log(colors.inverse.green("This is userData : " + userData));
-			JSON.stringify(bestMatch);
-			console.log(colors.inverse.green("This is best match name: " + bestMatchName));
-			console.log(colors.inverse.green("This is best match photo: " + bestMatchPhoto));
-			console.log(colors.inverse.green("This is best match difference: " + bestMatchDifference));*/
+			
+			console.log(colors.inverse.green("This is best match name: " + bestMatch.name));
+			console.log(colors.inverse.green("This is best match photo: " + bestMatch.photo));
+			console.log(colors.inverse.green("This is best match difference: " + bestMatch.friendDifference));
 
 			friends.push(userData);
 
 
-		// Return a JSON with the user's bestMatch. This will be used by the HTML in the next page. 
+		 
+		// Return a JSON with the user's bestMatch. This will be used by the survey HTML in the next page. 
+		res.json(bestMatch);
+
 	});
 };
 
