@@ -2,6 +2,7 @@
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
+var colors = require("colors");
 
 // Sets up the Express App
 // =============================================================
@@ -30,6 +31,6 @@ require("./app/routing/htmlRoutes")(app);
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
+  console.log(colors.inverse.green("App listening on PORT " + PORT));
 });
 

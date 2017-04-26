@@ -241,6 +241,7 @@ You feel more energetic after spending time with a group of people.</h3>
 <script type ="text/javascript">
 $(document).ready(function(){
 
+
      var config = {
       '.chosen-select': {},
       '.chosen-select-deselect': 
@@ -294,14 +295,21 @@ $(document).ready(function(){
             $("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), 
           ]
         }
+         
+
+      console.log("This is userData.scores: " + userData.scores);
+      
+      
         // Grab the URL of the website
         var currentURL = window.location.origin;
-        $.post(currentURL + '/api/friends', function(userData, friendsData){
+        $.post(currentURL + '/api/friends', userData, function(data){
           // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-          $("#matchName").text(friendsData.name);
-          $('#matchImg').attr("src", friendsData.photo);
+          $("#matchName").text(data.name);
+          $('#matchImg').attr("src", data.photo);
           // Show the modal with the best match 
           $("#resultsModal").modal('toggle');
+          console.log("This is data: " + data.name);
+          console.log("user data: " + userData);
         }); 
     } else {
       alert("You did not fill out all the fields in the form.");
@@ -312,7 +320,7 @@ $(document).ready(function(){
       });
     });
     return false;
-  });
+  }); // end of on click // 
 }); // end of document ready // 
 </script>
 

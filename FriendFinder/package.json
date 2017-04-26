@@ -23,6 +23,7 @@
   "dependencies": {
     "body-parser": "^1.17.1",
     "chosen": "0.0.2",
+    "colors": "^1.1.2",
     "express": "^4.15.2",
     "path": "^0.12.7"
   }
