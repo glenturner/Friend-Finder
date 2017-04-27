@@ -213,6 +213,11 @@ You feel more energetic after spending time with a group of people.</h3>
 
 </div>
 </div>
+<div class="section">
+  <style></style>
+      <p><a href="/api/friends">API Friend List | </a>
+      <a href="https://github.com/glenturner/Friend-Finder">GitHub Repo</a></p>
+  </div>
 <!-- Modal -->
   <div id="resultsModal" class="modal fade" role="dialog">
     
@@ -262,18 +267,18 @@ $(document).ready(function() {
     }
 
 
-    // Capture the form inputs 
+    // Capture the form inputs //
     $("#submit").on("click", function() {
-        //isValid is automatically set to true
+        //isValid is automatically set to true // 
         var isValid = true;
         // Form validation
         function validateForm() {
-            //if form-control is blank then invalid is changed to false
+            //if form-control is blank then invalid is changed to false //
             $('.form-control').each(function() {
                 if ($(this).val() === '')
                     isValid = false;
             });
-            //if chosen select is blank then isvalid is changed to false
+            //if chosen select is blank then isvalid is changed to false //
             $('.chosen-select').each(function() {
                 if ($(this).val() === "")
                     isValid = false
@@ -283,7 +288,7 @@ $(document).ready(function() {
         // If all required fields are filled
         // if (validateForm() == true){
         if (isValid) {
-            // Create an object for the user's data
+            // Create an object for the user's data // 
             var userData = {
                 name: $("#name").val(),
                 photo: $("#photo").val(),
@@ -296,10 +301,10 @@ $(document).ready(function() {
             console.log("This is userData.scores: " + userData.scores);
 
 
-            // Grab the URL of the website
+            // Grab the URL of the website // 
             var currentURL = window.location.origin;
             $.post(currentURL + '/api/friends', userData, function(data) {
-                // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+                // Grab the result from the AJAX post so that the best match's name and photo are displayed. // 
                 $("#matchName").text(data.name);
                 $('#matchImg').attr("src", data.photo);
                 // Show the modal with the best match 
