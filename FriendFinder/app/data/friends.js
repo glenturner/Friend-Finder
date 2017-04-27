@@ -15,12 +15,12 @@ var friends = [
  photo:"https://s-media-cache-ak0.pinimg.com/originals/a0/8e/0c/a08e0c5b87501af2db1c67b420ef2473.jpg",
  scores: [5, 2, 1, 2, 4, 3, 3, 1, 2 ,3]
 },
-{name:"Jesus Christmas",
+{name:"Heysues Christmas",
  photo:"https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAJ3AAAAJDkxMWNhOWZiLTgxNjMtNDU3Yy04MDg3LWNmZGQyZDM1OWI3Zg.jpg",
  scores: [1, 1, 1, 2, 4, 3, 3, 1, 5 ,3]
 },
 {name:"Victoria Secret",
- photo:"https://thehillarydifferencedotcom.files.wordpress.com/2015/06/image1.png",
+ photo:"https://www.google.com/search?q=hot+ladies&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjj4trewcPTAhXLOSYKHcIJATQQ_AUICigB&biw=1440&bih=826#imgrc=SfxZoKrwCQiypM:",
  scores: [1, 1, 1, 2, 3, 3, 3, 1, 5 ,3]
 }
 
