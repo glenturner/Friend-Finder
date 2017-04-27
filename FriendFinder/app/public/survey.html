@@ -10,7 +10,7 @@
    <!-- Latest compiled and minified CSS -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-
+<script src="https://use.fontawesome.com/ed45b368b2.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -26,14 +26,14 @@
 </head>
 <body>
 <style> .jumbotron {
-   background-color: #000080;
+   background-image: url(../assets/surveybg.jpg);
    color: white;
    margin: 30px;
 }
 
 .btn {
    margin: 10px;
-   background-color: #000080;
+   background-color: black;
 }
 span {
    margin: 5px;
@@ -49,7 +49,7 @@ color: white;
 }
 
 #headerDiv {
-   background-color: #000080;
+   background-color: black;
 }
 
 .form-control {
@@ -60,35 +60,59 @@ color: white;
    margin:10px;
 }</style>
 
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <a class="navbar-brand fa fa-facebook-square fa-2x" href="/">Friend Finder</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="/survey">Survey</a></li>
+                <li><a href="/api/friends">API Friend List</a></li>
+                <li><a href="https://github.com/glenturner/Friend-Finder">GitHub</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br><br><br><br>
+
+
+
+
+
 <div class="container">
-   <div class="jumbotron text-center">
-   <h1><span class="glyphicon glyphicon-list-alt"></span>Friends Finder Survey</h1>
-   </div>
-   <div class="row"></div>
-   <div class="col-12-sm">
-   <div class="panel panel-default">
-      <div id="headerDiv" class="panel-heading">About You</div>
-      <div class="container">
-     
-      <form id="form" action="">
-         <label for="input">Name (Required)</label>
-         <input type="text" class="form-control" id="name" placeholder="John Doe" required><br>
-         <label for="input">Link to Photo Image (Required)</label>
-         <input type="link" class="form-control"  id="photo" placeholder="http://i39.tinypic.com/1zvbr6b.jpg" required><br>
-             
-         
-   </form>
-   </div>
+    <div class="row"></div>
+    <div class="col-12-sm">
+        <div class="panel panel-default">
+            <div id="headerDiv" class="panel-heading">About You</div>
+            <div class="container">
 
-</div>
-   <div class="panel panel-default">
-      <div id="headerDiv" class="panel-heading">Survey</div>
-      <div class="container">
-      <div class="panel-body">
- <h3>Question 1<br>
-   <hr>
-Your mind is always buzzing with unexplored ideas and plans.</h3>
-        <select data-placeholder="Select an Option" class="chosen-select" id="q1">Select an Option
+                <form id="form" action="">
+                    <label for="input">Name (Required)</label>
+                    <input type="text" class="form-control" id="name" placeholder="John Doe" required><br>
+                    <label for="input">Link to Photo Image (Required)</label>
+                    <input type="link" class="form-control" id="photo" placeholder="http://i39.tinypic.com/1zvbr6b.jpg" required><br>
+
+
+                </form>
+            </div>
+            </div>
+
+        </div>
+        <div class="panel panel-default">
+            <div id="headerDiv" class="panel-heading">Survey</div>
+            <div class="container">
+                <div class="panel-body">
+                    <h3>Question 1<br>
+                        <hr> Your mind is always buzzing with unexplored ideas and plans.</h3>
+                    <select data-placeholder="Select an Option" class="chosen-select" id="q1">Select an Option
           <option value=""></option>
           <option value="1">1 (Strongly Disagree)</option>
           <option value="2">2 </option>
@@ -97,10 +121,9 @@ Your mind is always buzzing with unexplored ideas and plans.</h3>
           <option value="5">5 (Strongly Agree)</option>
         </select>
 
-   <h3>Question 2<br>
-   <hr>
-Generally speaking, you rely more on your experience than your imagination.</h3>
-        <select data-placeholder="" class="chosen-select" id="q2">
+                    <h3>Question 2<br>
+                        <hr> Generally speaking, you rely more on your experience than your imagination.</h3>
+                    <select data-placeholder="" class="chosen-select" id="q2">
           <option value=""></option>
           <option value="1">1 (Strongly Disagree)</option>
           <option value="2">2 </option>
@@ -108,11 +131,10 @@ Generally speaking, you rely more on your experience than your imagination.</h3>
           <option value="4">4 </option>
           <option value="5">5 (Strongly Agree)</option>
         </select>
-    
-  <h3>Question 3<br>
-   <hr>
-You find it easy to stay relaxed and focused even when there is some pressure.</h3>
-      <select data-placeholder="" class="chosen-select" id="q3">
+
+                    <h3>Question 3<br>
+                        <hr> You find it easy to stay relaxed and focused even when there is some pressure.</h3>
+                    <select data-placeholder="" class="chosen-select" id="q3">
         <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
         <option value="2">2 </option>
@@ -121,10 +143,9 @@ You find it easy to stay relaxed and focused even when there is some pressure.</
         <option value="5">5 (Strongly Agree)</option>
       </select>
 
- <h3>Question 4<br>
-   <hr>
-You rarely do something just out of sheer curiosity.</h3>
-      <select data-placeholder="" class="chosen-select" id="q4">
+                    <h3>Question 4<br>
+                        <hr> You rarely do something just out of sheer curiosity.</h3>
+                    <select data-placeholder="" class="chosen-select" id="q4">
         <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
         <option value="2">2 </option>
@@ -133,10 +154,9 @@ You rarely do something just out of sheer curiosity.</h3>
         <option value="5">5 (Strongly Agree)</option>
       </select>
 
-    <h3>Question 5<br>
-   <hr>
-People can rarely upset you.</h3>
-      <select data-placeholder="" class="chosen-select" id="q5">
+                    <h3>Question 5<br>
+                        <hr> People can rarely upset you.</h3>
+                    <select data-placeholder="" class="chosen-select" id="q5">
         <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
         <option value="2">2 </option>
@@ -145,10 +165,9 @@ People can rarely upset you.</h3>
         <option value="5">5 (Strongly Agree)</option>
       </select>
 
- <h3>Question 6<br>
-   <hr>
-It is often difficult for you to relate to other people’s feelings.</h3>
-      <select data-placeholder="" class="chosen-select" id="q6">
+                    <h3>Question 6<br>
+                        <hr> It is often difficult for you to relate to other people’s feelings.</h3>
+                    <select data-placeholder="" class="chosen-select" id="q6">
         <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
         <option value="2">2 </option>
@@ -157,10 +176,9 @@ It is often difficult for you to relate to other people’s feelings.</h3>
         <option value="5">5 (Strongly Agree)</option>
       </select>
 
-   <h3>Question 7<br>
-   <hr>
-In a discussion, truth should be more important than people’s sensitivities.</h3>
-      <select data-placeholder="" class="chosen-select" id="q7">
+                    <h3>Question 7<br>
+                        <hr> In a discussion, truth should be more important than people’s sensitivities.</h3>
+                    <select data-placeholder="" class="chosen-select" id="q7">
         <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
         <option value="2">2 </option>
@@ -169,10 +187,9 @@ In a discussion, truth should be more important than people’s sensitivities.</
         <option value="5">5 (Strongly Agree)</option>
       </select>
 
-    <h3>Question 8<br>
-   <hr>
-You rarely get carried away by fantasies and ideas.</h3>
-      <select data-placeholder="" class="chosen-select" id="q8">
+                    <h3>Question 8<br>
+                        <hr> You rarely get carried away by fantasies and ideas.</h3>
+                    <select data-placeholder="" class="chosen-select" id="q8">
         <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
         <option value="2">2 </option>
@@ -181,10 +198,9 @@ You rarely get carried away by fantasies and ideas.</h3>
         <option value="5">5 (Strongly Agree)</option>
       </select>
 
-    <h3>Question 9<br>
-   <hr>
-You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h3>
-      <select data-placeholder="" class="chosen-select" id="q9">
+                    <h3>Question 9<br>
+                        <hr> You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h3>
+                    <select data-placeholder="" class="chosen-select" id="q9">
         <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
         <option value="2">2 </option>
@@ -193,10 +209,9 @@ You think that everyone’s views should be respected regardless of whether they
         <option value="5">5 (Strongly Agree)</option>
       </select>
 
-  <h3>Question 10<br>
-   <hr>
-You feel more energetic after spending time with a group of people.</h3>
-      <select data-placeholder="" class="chosen-select" id="q10">
+                    <h3>Question 10<br>
+                        <hr> You feel more energetic after spending time with a group of people.</h3>
+                    <select data-placeholder="" class="chosen-select" id="q10">
         <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
         <option value="2">2 </option>
@@ -204,20 +219,15 @@ You feel more energetic after spending time with a group of people.</h3>
         <option value="4">4 </option>
         <option value="5">5 (Strongly Agree)</option>
       </select>
-      </div>
+                </div>
 
-<button type="button" id="submit" class="btn btn-info">Submit</button>
+                <button type="button" id="submit" class="btn btn-info">Submit</button>
 
-   </div>
-  
+            </div>
 
-</div>
-</div>
-<div class="section">
-  <style></style>
-      <p><a href="/api/friends">API Friend List | </a>
-      <a href="https://github.com/glenturner/Friend-Finder">GitHub Repo</a></p>
-  </div>
+
+        </div>
+    </div>
 <!-- Modal -->
   <div id="resultsModal" class="modal fade" role="dialog">
     
@@ -243,6 +253,7 @@ You feel more energetic after spending time with a group of people.</h3>
     </div>
   </div>
 </div> <!-- End of Container  -->
+</body>
 <script type ="text/javascript">
 $(document).ready(function() {
 
