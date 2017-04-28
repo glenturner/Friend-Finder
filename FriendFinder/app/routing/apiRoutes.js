@@ -43,6 +43,9 @@ module.exports = function(app) {
             userTotalArray.push(userScores)
 
             console.log(colors.inverse.red("This is userTotalArray: " + userTotalArray));
+              // This turns array of strings into array of integers to sum up total for compatability // 
+             var arrayOfNumber = friends[i].scores.map(Number);
+             console.log(colors.inverse.cyan("This is test map for friend[i].scores: " + arrayOfNumber));
             //loop through that friends score and the users score and calculate the absolute difference between the two and push that to the total difference variable set above
             for (var j = 0; j < userScores.length; j++) {
                 // function that generates value for friends total to compare compatability with user // 
@@ -50,11 +53,11 @@ module.exports = function(app) {
                     return total + num;
                 }
                 // reduce method that saves friendsTotals function for compatability // 
-                friendsTotalDifference = friends[i].scores.reduce(friendTotals);
+                friendsTotalDifference = arrayOfNumber.reduce(friendTotals);
                 console.log(colors.inverse("This is friends[i] total: " + friendsTotalDifference));
                 // This turns array of strings into array of integers to sum up total for compatability // 
                 var arrayOfNumbers = userScores.map(Number);
-                console.log(colors.inverse.yellow("This is test map(Number): " + arrayOfNumbers));
+                console.log(colors.inverse.yellow("This is test map for userScores: " + arrayOfNumbers));
                 // function that generates value for user total to compare compatablility with friends api // 
                 function userTotals(total, num) {
                     return total + num;
